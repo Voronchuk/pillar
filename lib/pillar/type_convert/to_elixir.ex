@@ -175,6 +175,10 @@ defmodule Pillar.TypeConvert.ToElixir do
     end
   end
 
+  def convert("JSON", value) when is_map(value) do
+    value
+  end
+
   defp convert_datetime_with_timezone(value, time_zone) do
     [date, time] = String.split(value, " ")
 
